@@ -9,7 +9,7 @@ This is a base docker image for running rails web applications using nginx and p
 ## Usage
 This image is best used with docker-compose. The `docker-compose.yml` in the rails app should contain the following at minimum:
 ```yaml
-version: '3.6'
+version: '3'
 
 services:
   app:
@@ -26,3 +26,5 @@ FROM erhassettbg/rails-base:<TAG>
 ```
 
 It's possible that `config/master.key` in the rails app will not be able to be read by passenger and the app will not start correctly. When this happens, verify that it can be read by passenger with `chmod 644 config/master.key`.
+
+This image overwrites `lib/tasks` for Rails apps to include a `rake db:exists` command. If you are migrating an existing Rails application to use this base image, you should add those tasks to `<TAG>/rails` to be copied on build.

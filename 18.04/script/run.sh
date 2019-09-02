@@ -5,4 +5,6 @@ ruby -r erb -e 'puts ERB.new(File.read("/etc/nginx/passenger.conf.erb")).result'
 
 rails assets:precompile
 
+rake db:exists && rake db:migrate || rake db:setup
+
 nginx

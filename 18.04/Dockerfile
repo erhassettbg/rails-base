@@ -12,6 +12,7 @@ COPY script/* /usr/local/bin/
 RUN setup
 
 COPY nginx/* /etc/nginx/
+COPY rails/* /tmp/
 
 RUN mkdir $APP_DIR
 WORKDIR $APP_DIR
@@ -20,3 +21,4 @@ ONBUILD COPY Gemfile* ./
 ONBUILD COPY ./vendor ./vendor
 ONBUILD RUN gem install bundler && bundle install
 ONBUILD COPY . ./
+ONBUILD RUN cp /tmp/db_exists.rake ./lib/tasks/
