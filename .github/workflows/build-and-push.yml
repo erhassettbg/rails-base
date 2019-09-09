@@ -1,0 +1,21 @@
+name: Build and Push Docker Images
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-push:
+    name: Build and Push Docker Images
+    runs-on: ubuntu-18.04
+    steps:
+    - name: Clone Repo
+      env:
+        GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME }}
+      run: git clone https://github.com/$GITHUB_USERNAME/rails-base.git
+    - name: Run script/ci
+      env:
+        GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_ACTIONS_TOKEN }}
+      run: cd rails-base && script/ci

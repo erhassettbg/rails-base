@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 ENV APP_DIR=/app \
   GEM_HOME=/usr/local/lib/ruby/2.5.1 \
@@ -8,7 +8,7 @@ ENV APP_DIR=/app \
   RAILS_ENV=production \
   RUBY_VERSION=2.5.1
 
-COPY script/* /usr/local/bin/
+COPY script/run.sh script/setup /usr/local/bin/
 RUN setup
 
 COPY nginx/* /etc/nginx/

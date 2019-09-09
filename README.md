@@ -3,8 +3,8 @@
 This is a base docker image for running rails web applications using nginx and phusion passenger. 
 
 # Tags
-* [16.04](16.04/Dockerfile) - Built off the official `ubuntu:16.04` image.
-* [18.04, latest](18.04/Dockerfile) - Built off the official `ubuntu:18.04` image.
+* [16.04](Dockerfile-16.04) - Built off the official `ubuntu:16.04` image.
+* [18.04, latest](Dockerfile-18.04) - Built off the official `ubuntu:18.04` image.
 
 ## Usage
 This image is best used with docker-compose. The `docker-compose.yml` in the rails app should contain the following at minimum:
