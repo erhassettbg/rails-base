@@ -16,6 +16,6 @@ jobs:
       run: git clone https://github.com/$GITHUB_USERNAME/rails-base.git
     - name: Run script/ci
       env:
-        GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_ACTIONS_TOKEN }}
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
       run: cd rails-base && script/ci

@@ -3,16 +3,16 @@
 echo "------------------------"
 echo "Building images"
 echo "------------------------"
-docker build --tag docker.pkg.github.com/$GITHUB_USERNAME/rails-base/rails-base:16.04 \
+docker build --tag $DOCKER_USERNAME/rails-base:16.04 \
   --file Dockerfile-16.04 .
-docker build --tag docker.pkg.github.com/$GITHUB_USERNAME/rails-base/rails-base:18.04 \
-  --tag docker.pkg.github.com/$GITHUB_USERNAME/rails-base/rails-base:latest \
+docker build --tag $DOCKER_USERNAME/rails-base:18.04 \
+  --tag $DOCKER_USERNAME/rails-base:latest \
   --file Dockerfile-18.04 .
 
 echo "------------------------"
 echo "Pushing images"
 echo "------------------------"
-docker login docker.pkg.github.com -u $GITHUB_USERNAME -p $GITHUB_TOKEN
-docker push docker.pkg.github.com/$GITHUB_USERNAME/rails-base/rails-base:16.04
-docker push docker.pkg.github.com/$GITHUB_USERNAME/rails-base/rails-base:18.04
-docker push docker.pkg.github.com/$GITHUB_USERNAME/rails-base/rails-base:latest
+docker login -u $DOCKER_USERNAME -p $DOCKER_TOKEN
+docker push $DOCKER_USERNAME/rails-base:16.04
+docker push $DOCKER_USERNAME/rails-base:18.04
+docker push $DOCKER_USERNAME/rails-base:latest
