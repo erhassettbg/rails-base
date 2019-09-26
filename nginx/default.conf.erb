@@ -23,7 +23,7 @@ server {
   ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
   ssl on;
   ssl_certificate <%= ENV['SSL_CERT'] %>;
-  ssl_certificat_key <%= ENV['SSL_CERT_KEY'] %>;
+  ssl_certificate_key <%= ENV['SSL_CERT_KEY'] %>;
 
   server_name _;
   root <%= ENV['APP_DIR'] %>/public;
