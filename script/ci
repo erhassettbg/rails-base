@@ -16,3 +16,10 @@ docker login -u $DOCKER_USERNAME -p $DOCKER_TOKEN
 docker push $DOCKER_USERNAME/rails-base:16.04
 docker push $DOCKER_USERNAME/rails-base:18.04
 docker push $DOCKER_USERNAME/rails-base:latest
+
+echo "------------------------"
+echo "Triggering downstream jobs"
+echo "------------------------"
+curl -u ${CIRCLE_API_USER_TOKEN}: \
+     -d build_parameters[CIRCLE_JOB]=redeploy \
+     https://circleci.com/api/v1.1/project/github/erhassettbg/erhbg/tree/circleci-project-setup
