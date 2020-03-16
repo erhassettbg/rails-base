@@ -1,4 +1,4 @@
-[![](https://images.microbadger.com/badges/image/erhassettbg/rails-base.svg)](https://microbadger.com/images/erhassettbg/rails-base "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/image/erhassettbg/rails-base:18.04.svg)](https://microbadger.com/images/erhassettbg/rails-base:18.04 "Get your own image badge on microbadger.com")[![](https://images.microbadger.com/badges/version/erhassettbg/rails-base:18.04.svg)](https://microbadger.com/images/erhassettbg/rails-base:18.04 "Get your own version badge on microbadger.com")
 # rails-base
 This is a base docker image for running rails web applications using nginx and phusion passenger. 
 
