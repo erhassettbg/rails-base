@@ -22,4 +22,4 @@ echo "Triggering downstream jobs"
 echo "------------------------"
 curl -u ${CIRCLE_API_USER_TOKEN}: \
      -d build_parameters[CIRCLE_JOB]=redeploy \
-     https://circleci.com/api/v1.1/project/github/erhassettbg/erhbg/tree/circleci-project-setup
+     https://circleci.com/api/v1.1/project/github/erhassettbg/erhbg/tree/master
