@@ -1,12 +1,12 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 ENV APP_DIR=/app \
-  GEM_HOME=/usr/local/lib/ruby/2.5.1 \
+  GEM_HOME=/usr/local/lib/ruby/2.7.0 \
   NGINX_VERSION=1.15.12 \
-  PATH="${PATH}:/usr/local/lib/ruby/2.5.1/bin" \
+  PATH="${PATH}:/usr/local/lib/ruby/2.7.0/bin" \
   PASSENGER_VERSION=6.0.2 \
   RAILS_ENV=production \
-  RUBY_VERSION=2.5.1
+  RUBY_VERSION=2.7.0
 
 COPY script/run.sh script/setup /usr/local/bin/
 RUN setup
