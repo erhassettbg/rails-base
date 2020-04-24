@@ -1,0 +1,43 @@
+server {
+  listen 80;
+  server_name _;
+  root <%= ENV['APP_DIR'] %>/public;
+
+  passenger_app_root <%= ENV['APP_DIR'] %>;
+  passenger_enabled on;
+
+  location ~ ^/(assets)/ {
+    add_header Access-Control-Allow-Origin *;
+    add_header Access-Control-Allow-Methods GET,HEAD;
+    add_header Cache-Control public;
+    add_header ETag "";
+    gzip_static on;
+    expires max;
+  }
+}
+
+<% if ENV['SSL_CERT'] %>
+server {
+  listen 443;
+
+  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+  ssl on;
+  ssl_certificate <%= ENV['SSL_CERT'] %>;
+  ssl_certificate_key <%= ENV['SSL_CERT_KEY'] %>;
+
+  server_name _;
+  root <%= ENV['APP_DIR'] %>/public;
+
+  passenger_app_root <%= ENV['APP_DIR'] %>;
+  passenger_enabled on;
+
+  location ~ ^/(assets)/ {
+    add_header Access-Control-Allow-Origin *;
+    add_header Access-Control-Allow-Methods GET,HEAD;
+    add_header Cache-Control public;
+    add_header ETag "";
+    gzip_static on;
+    expires max;
+  }
+}
+<% end %>
