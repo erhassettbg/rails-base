@@ -1,0 +1,25 @@
+FROM ubuntu:18.04
+
+ENV APP_DIR=/app \
+  GEM_HOME=/usr/local/lib/ruby/2.7.0 \
+  NGINX_VERSION=1.15.12 \
+  NODE_VERSION=12.16.2 \
+  PATH="${PATH}:/usr/local/lib/ruby/2.7.0/bin" \
+  PASSENGER_VERSION=6.0.2 \
+  RAILS_ENV=production \
+  RUBY_VERSION=2.7.0
+
+COPY script/run.sh script/setup /usr/local/bin/
+RUN setup
+
+COPY nginx/* /etc/nginx/
+COPY rails/* /tmp/
+
+RUN mkdir $APP_DIR
+WORKDIR $APP_DIR
+
+ONBUILD COPY Gemfile* ./
+ONBUILD COPY ./vendor ./vendor
+ONBUILD RUN gem install bundler && bundle install
+ONBUILD COPY . ./
+ONBUILD RUN cp /tmp/db_exists.rake ./lib/tasks/
