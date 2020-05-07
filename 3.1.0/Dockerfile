@@ -3,7 +3,7 @@ FROM ubuntu:18.04
 ENV APP_DIR=/app \
   GEM_HOME=/usr/local/lib/ruby/2.7.0 \
   NGINX_VERSION=1.15.12 \
-  NODE_VERSION=12.16.2 \
+  NODE_VERSION=12.x \
   PATH="${PATH}:/usr/local/lib/ruby/2.7.0/bin" \
   PASSENGER_VERSION=6.0.2 \
   RAILS_ENV=production \
