@@ -4,7 +4,6 @@ ruby -r erb -e 'puts ERB.new(File.read("/etc/nginx/default.conf.erb")).result' >
 ruby -r erb -e 'puts ERB.new(File.read("/etc/nginx/passenger.conf.erb")).result' > /etc/nginx/passenger.conf
 
 # Install yarn and compile webpack assets
-yarn install
 bundle exec rails webpacker:install
 bundle exec rails webpacker:compile
 
