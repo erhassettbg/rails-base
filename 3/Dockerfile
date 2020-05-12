@@ -1,4 +1,4 @@
-# VERSION 3.1.1
+# VERSION 3.1.2
 FROM ubuntu:18.04
 
 ENV APP_DIR=/app \
