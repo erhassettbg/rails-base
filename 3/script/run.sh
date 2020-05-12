@@ -11,6 +11,6 @@ bundle exec rails webpacker:compile
 rails assets:precompile
 
 # Check for database and migrate or setup the database
-rake db:exists && rake db:migrate || rake db:setup
+rake db:exists && rake db:migrate || rake db:setup && rake db:migrate
 
 nginx
